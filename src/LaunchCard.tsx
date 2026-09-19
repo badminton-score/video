@@ -4,11 +4,11 @@ import { COLORS, FONT } from "./theme";
 
 const FEATURES: [string, string][] = [
   ["🗓", "六种计分模式"],
-  ["🎛", "自定义规则"],
-  ["👥", "单打 / 双打"],
-  ["🔔", "到分自动判胜"],
-  ["↩️", "减分即撤回"],
-  ["📋", "对战记录"],
+  ["🎛", "自定义分数与局数"],
+  ["👥", "单打 / 双打 · 发球轮转"],
+  ["👆", "一指计分 · 减分即撤回"],
+  ["📋", "对战记录 · 批量删除"],
+  ["📱", "iPhone 和 Android 都有"],
 ];
 
 /** 发布公告图：1080 × 1500 */
@@ -23,15 +23,15 @@ export const LaunchCard: React.FC = () => (
       <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
         <div style={{ fontSize: 92 }}>🏸</div>
         <div>
-          <div style={{ fontSize: 48, fontWeight: 800, color: COLORS.text, letterSpacing: 2 }}>羽毛球计分器</div>
+          <div style={{ fontSize: 48, fontWeight: 800, color: COLORS.text, letterSpacing: 2 }}>赛点</div>
           <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ fontSize: 24, fontWeight: 700, color: "#07080C", padding: "5px 18px", borderRadius: 10, background: COLORS.blue }}>2.0</span>
+            <span style={{ fontSize: 24, fontWeight: 700, color: "#07080C", padding: "5px 18px", borderRadius: 10, background: COLORS.blue }}>2.2</span>
             <span style={{ fontSize: 21, color: COLORS.textDim }}>自定义规则 · 双打 · 对战记录</span>
           </div>
         </div>
       </div>
 
-      <div style={{ marginTop: 42, fontSize: 18, fontWeight: 700, color: COLORS.blue, letterSpacing: 6 }}>本 次 更 新</div>
+      <div style={{ marginTop: 42, fontSize: 18, fontWeight: 700, color: COLORS.blue, letterSpacing: 6 }}>功 能 一 览</div>
       <div style={{ marginTop: 18, flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-evenly" }}>
         {/* 静态图只渲染第 0 帧，动画组件会停在起始状态（全透明），所以这里用普通元素 */}
         {FEATURES.map(([icon, title]) => (

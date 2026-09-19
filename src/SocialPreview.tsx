@@ -16,9 +16,9 @@ export const SocialPreview: React.FC = () => (
           <Img src={staticFile("icon.png")}
                style={{ width: 66, height: 66, borderRadius: 16, display: "block",
                         boxShadow: "0 12px 30px rgba(0,0,0,0.5)" }} />
-          <span style={{ fontSize: 40, fontWeight: 700, color: COLORS.text }}>羽毛球计分器</span>
+          <span style={{ fontSize: 40, fontWeight: 700, color: COLORS.text }}>赛点</span>
           <span style={{ fontSize: 24, fontWeight: 800, color: "#07080C", background: COLORS.blue,
-                         padding: "4px 14px", borderRadius: 9 }}>2.0</span>
+                         padding: "4px 14px", borderRadius: 9 }}>2.2</span>
         </div>
 
         <div style={{ marginTop: 28, fontSize: 56, fontWeight: 800, color: COLORS.text, lineHeight: 1.16 }}>

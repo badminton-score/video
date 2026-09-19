@@ -14,8 +14,8 @@ export const Cover: React.FC = () => (
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontSize: 52 }}>🏸</span>
-          <span style={{ fontSize: 38, fontWeight: 700, color: COLORS.text }}>羽毛球计分器</span>
-          <span style={{ fontSize: 25, fontWeight: 800, color: "#07080C", background: COLORS.blue, padding: "4px 15px", borderRadius: 10 }}>2.0</span>
+          <span style={{ fontSize: 38, fontWeight: 700, color: COLORS.text }}>赛点</span>
+          <span style={{ fontSize: 25, fontWeight: 800, color: "#07080C", background: COLORS.blue, padding: "4px 15px", borderRadius: 10 }}>2.2</span>
         </div>
 
         <div style={{ marginTop: 26, fontSize: 60, fontWeight: 800, color: COLORS.text, lineHeight: 1.16 }}>

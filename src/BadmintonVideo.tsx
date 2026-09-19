@@ -74,7 +74,7 @@ const SceneOpen: React.FC<{ dur: number }> = ({ dur }) => (
       <div style={{ height: 26 }} />
       <FadeUp delay={10} distance={26}>
         <div style={{ fontSize: 96, fontWeight: 800, color: COLORS.text, letterSpacing: 4, fontFamily: FONT }}>
-          羽毛球计分器
+          赛点
         </div>
       </FadeUp>
       <div style={{ height: 22 }} />
@@ -88,7 +88,7 @@ const SceneOpen: React.FC<{ dur: number }> = ({ dur }) => (
         <div style={{
           fontSize: 24, fontWeight: 700, color: "#07080C", background: COLORS.blue,
           padding: "9px 26px", borderRadius: 14, fontFamily: FONT,
-        }}>2.0</div>
+        }}>2.2</div>
       </FadeUp>
     </AbsoluteFill>
   </SceneShell>
@@ -242,27 +242,56 @@ const SceneRecords: React.FC<{ dur: number }> = ({ dur }) => (
   <SceneShell duration={dur} glow={0.9} glowY={42}>
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
       <Kicker delay={4}>对战记录</Kicker>
+      <div style={{ height: 22 }} />
+      <Headline delay={12} size={56}>打完自动记一笔</Headline>
+      <div style={{ height: 34 }} />
+      <div style={{ display: "flex", gap: 56, alignItems: "center" }}>
+        <Shot src="s-records-select.png" height={480} delay={20} />
+        <div style={{ width: 560 }}>
+          {[
+            "比分、用时、胜负，自动记下来",
+            "点「选择」进多选，每行出现圆圈",
+            "「全选」一次选中全部，一起删",
+            "单条向左滑，右侧露出红色删除",
+          ].map((t, i) => (
+            <FadeUp key={t} delay={34 + i * 9} distance={18}>
+              <div style={{ display: "flex", alignItems: "center", gap: 13, marginBottom: 16 }}>
+                <span style={{ color: COLORS.blue, fontSize: 22 }}>·</span>
+                <span style={{ fontSize: 25, color: COLORS.text, fontFamily: FONT }}>{t}</span>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </div>
+    </AbsoluteFill>
+  </SceneShell>
+);
+
+/** 双平台 */
+const ScenePlatforms: React.FC<{ dur: number }> = ({ dur }) => (
+  <SceneShell duration={dur} glow={1.0} glowY={44}>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+      <Kicker delay={4}>两个平台</Kicker>
       <div style={{ height: 24 }} />
-      <Headline delay={12} size={58}>打完自动记一笔</Headline>
-      <div style={{ height: 40 }} />
-      <div style={{ display: "flex", gap: 90 }}>
+      <Headline delay={12} size={58}>iPhone 和 Android 都有</Headline>
+      <div style={{ height: 34 }} />
+      <div style={{ display: "flex", gap: 70, alignItems: "flex-start" }}>
         {[
-          { n: "总场次", v: "128", c: COLORS.text },
-          { n: "红方胜", v: "71", c: COLORS.redBright },
-          { n: "蓝方胜", v: "57", c: COLORS.blueBright },
-        ].map((x, i) => (
-          <FadeUp key={x.n} delay={24 + i * 10} distance={22}>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 84, fontWeight: 800, color: x.c, fontFamily: FONT }}>{x.v}</div>
-              <div style={{ marginTop: 8, fontSize: 22, color: COLORS.textDim, fontFamily: FONT }}>{x.n}</div>
+          { src: "s-home.png", label: "iPhone" },
+          { src: "s-android-home.png", label: "Android" },
+        ].map((t, i) => (
+          <div key={t.label} style={{ textAlign: "center" }}>
+            <Shot src={t.src} height={400} delay={22 + i * 10} />
+            <div style={{ marginTop: 14, fontSize: 24, fontWeight: 700, color: COLORS.textDim, fontFamily: FONT }}>
+              {t.label}
             </div>
-          </FadeUp>
+          </div>
         ))}
       </div>
-      <div style={{ height: 46 }} />
-      <FadeUp delay={58} distance={20}>
+      <div style={{ height: 30 }} />
+      <FadeUp delay={54} distance={20}>
         <div style={{ fontSize: 25, color: COLORS.textDim, fontFamily: FONT }}>
-          存本地 · 不联网 · 不要账号 · 不收集任何数据
+          功能一致 · 都开源 · 都不联网
         </div>
       </FadeUp>
     </AbsoluteFill>
@@ -280,7 +309,7 @@ const SceneOutro: React.FC<{ dur: number }> = ({ dur }) => {
         <div style={{ fontSize: 108 }}>🏸</div>
         <div style={{ height: 26 }} />
         <div style={{ fontSize: 72, fontWeight: 800, color: COLORS.text, letterSpacing: 3, fontFamily: FONT }}>
-          羽毛球计分器
+          赛点
         </div>
         <div style={{ height: 18 }} />
         <div style={{ fontSize: 26, color: COLORS.textFaint, letterSpacing: 5, fontFamily: FONT }}>
@@ -293,7 +322,8 @@ const SceneOutro: React.FC<{ dur: number }> = ({ dur }) => {
 
 const MAP: [keyof typeof SCENES, React.FC<{ dur: number }>][] = [
   ["open", SceneOpen], ["tap", SceneTap], ["minus", SceneMinus], ["modes", SceneModes],
-  ["custom", SceneCustom], ["doubles", SceneDoubles], ["records", SceneRecords], ["outro", SceneOutro],
+  ["custom", SceneCustom], ["doubles", SceneDoubles], ["records", SceneRecords],
+  ["platforms", ScenePlatforms], ["outro", SceneOutro],
 ];
 
 /** 场景交界处交叠的帧数。两边一起淡，就成了交叉溶解，不会中间黑一下。 */
@@ -310,7 +340,7 @@ export const BadmintonVideo: React.FC = () => (
     }} />
 
     <Audio
-      src={staticFile("episode33.mp3")}
+      src={staticFile("slowmotion.mp3")}
       volume={(f) =>
         interpolate(f, [0, 30, TOTAL_FRAMES - 90, TOTAL_FRAMES], [0, 1, 1, 0], {
           extrapolateLeft: "clamp", extrapolateRight: "clamp",

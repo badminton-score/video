@@ -1,4 +1,4 @@
-/** 羽毛球计分器的配色，和 App 里 Theme.swift 保持一致。 */
+/** 赛点的配色，和 App 里 Theme.swift 保持一致。 */
 export const COLORS = {
   bg: "#07080C",
   bgCard: "#12141C",
@@ -40,8 +40,9 @@ export const SCENES = {
   modes:   { from: 1020, dur: 420 },   // 0:34 六种计分模式
   custom:  { from: 1440, dur: 420 },   // 0:48 自定义规则
   doubles: { from: 1860, dur: 420 },   // 1:02 双打
-  records: { from: 2280, dur: 330 },   // 1:16 对战记录
-  outro:   { from: 2610, dur: 300 },   // 1:27 结尾
+  records: { from: 2280, dur: 390 },   // 1:16 对战记录
+  platforms: { from: 2670, dur: 300 },  // 1:29 iPhone & Android
+  outro:   { from: 2970, dur: 300 },   // 1:39 结尾
 } as const;
 
 export const TOTAL_FRAMES = SCENES.outro.from + SCENES.outro.dur;   // 2910 帧 = 97 秒
