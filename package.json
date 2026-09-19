@@ -1,0 +1,21 @@
+{
+  "name": "badminton-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "羽毛球计分器宣传视频（Remotion）",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render BadmintonVideo out/badminton-2.0.mp4 --codec=h264 --crf=18"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.525",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.525"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
