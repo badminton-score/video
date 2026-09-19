@@ -296,8 +296,19 @@ const MAP: [keyof typeof SCENES, React.FC<{ dur: number }>][] = [
   ["custom", SceneCustom], ["doubles", SceneDoubles], ["records", SceneRecords], ["outro", SceneOutro],
 ];
 
+/** 场景交界处交叠的帧数。两边一起淡，就成了交叉溶解，不会中间黑一下。 */
+const OVERLAP = 22;
+
 export const BadmintonVideo: React.FC = () => (
   <>
+    {/* 常驻背景。所有场景都盖在它上面，淡出时露出来的是它，不是空白。 */}
+    <AbsoluteFill style={{
+      backgroundColor: COLORS.bg,
+      backgroundImage:
+        `radial-gradient(48% 62% at 12% 18%, ${COLORS.red}14 0%, transparent 62%),` +
+        `radial-gradient(48% 62% at 88% 82%, ${COLORS.blue}14 0%, transparent 62%)`,
+    }} />
+
     <Audio
       src={staticFile("episode33.mp3")}
       volume={(f) =>
@@ -306,11 +317,14 @@ export const BadmintonVideo: React.FC = () => (
         })
       }
     />
-    {MAP.map(([key, Comp]) => {
+    {MAP.map(([key, Comp], i) => {
       const { from, dur } = SCENES[key];
+      // 除了最后一个场景，每个都往后多留 OVERLAP 帧给下一个场景淡入，
+      // 于是两个场景有一段同时可见 —— 交叉溶解。
+      const extra = i === MAP.length - 1 ? 0 : OVERLAP;
       return (
-        <Sequence key={key} from={from} durationInFrames={dur} name={key}>
-          <Comp dur={dur} />
+        <Sequence key={key} from={from} durationInFrames={dur + extra} name={key}>
+          <Comp dur={dur + extra} />
         </Sequence>
       );
     })}

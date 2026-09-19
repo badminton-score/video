@@ -67,9 +67,12 @@ export const SceneShell: React.FC<{
 }> = ({ duration, children, glow = 1, glowY = 44, fadeIn, fadeOut }) => {
   const opacity = useSceneFade(duration, fadeIn ?? 14, fadeOut ?? 18);
   return (
+    // 注意：这里**不设 backgroundColor**。
+    // 之前每个场景自带一层不透明背景，跟着 opacity 一起淡出，
+    // 淡到 0 时露出空白底色 —— 每个场景交界处都会黑闪一下。
+    // 现在背景由 Root 那一层常驻，场景只淡自己的内容，交界处就是交叉溶解。
     <AbsoluteFill
       style={{
-        backgroundColor: COLORS.bg,
         opacity,
         fontFamily: FONT,
         color: COLORS.text,
