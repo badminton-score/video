@@ -9,6 +9,7 @@
 | `BadmintonVideo` | 宣传视频，1920×1080，123 秒 |
 | `Cover` | B 站封面，1146×717 |
 | `LaunchCard` | 竖版公告图，1080×1500 |
+| `SocialPreview` | GitHub 仓库社交预览，1280×640 |
 
 ## 用法
 
@@ -18,7 +19,8 @@ npm install
 npx remotion compositions
 npx remotion still Cover out/cover.png
 npx remotion still LaunchCard out/launch.png
-npx remotion render BadmintonVideo out/saidian-2.3.mp4 --codec=h264 --crf=18
+npx remotion still SocialPreview out/social.png
+npx remotion render BadmintonVideo out/saidian-2.3.1.mp4 --codec=h264 --crf=18
 npx remotion studio          # 可视化编辑器
 ```
 
@@ -32,7 +34,7 @@ npx remotion studio          # 可视化编辑器
 
 ## 关于背景音乐
 
-2.3 视频使用 Episode 33。仓库按原有约定忽略 `*.mp3`，本地渲染前把
+2.3 / 2.3.1 视频使用 Episode 33。仓库按原有约定忽略 `*.mp3`，本地渲染前把
 `Episode 33.mp3` 放到 `public/episode33.mp3`；替换音乐时同步修改
 `src/BadmintonVideo.tsx` 里 `staticFile()` 的文件名。
 
