@@ -6,7 +6,7 @@
 
 | Composition | 内容 |
 | --- | --- |
-| `BadmintonVideo` | 宣传视频，1920×1080，97 秒 |
+| `BadmintonVideo` | 宣传视频，1920×1080，123 秒 |
 | `Cover` | B 站封面，1146×717 |
 | `LaunchCard` | 竖版公告图，1080×1500 |
 
@@ -18,7 +18,7 @@ npm install
 npx remotion compositions
 npx remotion still Cover out/cover.png
 npx remotion still LaunchCard out/launch.png
-npx remotion render BadmintonVideo out/badminton-2.0.mp4 --codec=h264 --crf=18
+npx remotion render BadmintonVideo out/saidian-2.3.mp4 --codec=h264 --crf=18
 npx remotion studio          # 可视化编辑器
 ```
 
@@ -32,8 +32,9 @@ npx remotion studio          # 可视化编辑器
 
 ## 关于背景音乐
 
-**仓库里没有音乐**（版权原因）。渲染带声音的视频时，自己准备一个 mp3 放到项目根目录，
-文件名要和 `src/BadmintonVideo.tsx` 里 `staticFile()` 引用的对上。
+2.3 视频使用 Episode 33。仓库按原有约定忽略 `*.mp3`，本地渲染前把
+`Episode 33.mp3` 放到 `public/episode33.mp3`；替换音乐时同步修改
+`src/BadmintonVideo.tsx` 里 `staticFile()` 的文件名。
 
 渲染出来的 MP4 已经带了音轨，可以直接发。
 
@@ -43,7 +44,7 @@ npx remotion studio          # 可视化编辑器
 
 之前每个场景自带一层不透明背景，跟着 `opacity` 一起淡出，
 淡到 0 时露出空白底色 —— 于是每个场景交界处都黑闪一下
-（97 秒里 8 个场景 = 8 次黑闪）。
+（123 秒里 10 个场景 = 10 次黑闪）。
 
 现在背景是 `BadmintonVideo` 里一层常驻的 `AbsoluteFill`，
 场景只淡自己的内容；再加上前后两个场景的 `Sequence` 交叠 22 帧，
@@ -63,12 +64,12 @@ Remotion 的静态图（`remotion still`）**只渲染第 0 帧**，
 src/
   theme.ts             配色（和 App 的 Theme.swift 一致）与时间轴
   anim.tsx             动效工具
-  BadmintonVideo.tsx   宣传视频（8 个场景）
+  BadmintonVideo.tsx   宣传视频（10 个场景）
   Cover.tsx            B 站封面
   LaunchCard.tsx       竖版公告图
   Root.tsx             注册 composition
   index.ts             入口
-public/                应用截图 + 音乐（音乐不在仓库里）
+public/                应用截图（背景音乐按需本地放入，不提交）
 ```
 
 ## 许可证

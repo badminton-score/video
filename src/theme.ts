@@ -7,6 +7,7 @@ export const COLORS = {
   text: "#FFFFFF",
   textDim: "#9AA1B4",
   textFaint: "#5F6678",
+  orange: "#FFB84D",
 
   /** 红方 */
   red: "#FF3D4D",
@@ -37,12 +38,13 @@ export const SCENES = {
   open:    { from: 0,    dur: 300 },   // 0:00 开场
   tap:     { from: 300,  dur: 390 },   // 0:10 一指计分
   minus:   { from: 690,  dur: 330 },   // 0:23 减分即撤回
-  modes:   { from: 1020, dur: 420 },   // 0:34 六种计分模式
-  custom:  { from: 1440, dur: 420 },   // 0:48 自定义规则
-  doubles: { from: 1860, dur: 420 },   // 1:02 双打
-  records: { from: 2280, dur: 390 },   // 1:16 对战记录
-  platforms: { from: 2670, dur: 300 },  // 1:29 iPhone & Android
-  outro:   { from: 2970, dur: 300 },   // 1:39 结尾
+  cards:   { from: 1020, dur: 420 },   // 0:34 红黄牌
+  modes:   { from: 1440, dur: 420 },   // 0:48 六种计分模式
+  custom:  { from: 1860, dur: 420 },   // 1:02 自定义规则
+  doubles: { from: 2280, dur: 420 },   // 1:16 双打
+  records: { from: 2700, dur: 390 },   // 1:30 对战记录
+  platforms: { from: 3090, dur: 300 },  // 1:43 iPhone & Android
+  outro:   { from: 3390, dur: 300 },   // 1:53 结尾
 } as const;
 
-export const TOTAL_FRAMES = SCENES.outro.from + SCENES.outro.dur;   // 2910 帧 = 97 秒
+export const TOTAL_FRAMES = SCENES.outro.from + SCENES.outro.dur;   // 3690 帧 = 123 秒

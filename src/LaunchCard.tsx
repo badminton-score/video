@@ -7,6 +7,7 @@ const FEATURES: [string, string][] = [
   ["🎛", "自定义分数与局数"],
   ["👥", "单打 / 双打 · 发球轮转"],
   ["👆", "一指计分 · 减分即撤回"],
+  ["🟥", "红黄牌计数 · 全屏提示 · 分别撤销"],
   ["📋", "对战记录 · 批量删除"],
   ["📱", "iPhone 和 Android 都有"],
 ];
@@ -25,8 +26,8 @@ export const LaunchCard: React.FC = () => (
         <div>
           <div style={{ fontSize: 48, fontWeight: 800, color: COLORS.text, letterSpacing: 2 }}>赛点</div>
           <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ fontSize: 24, fontWeight: 700, color: "#07080C", padding: "5px 18px", borderRadius: 10, background: COLORS.blue }}>2.2</span>
-            <span style={{ fontSize: 21, color: COLORS.textDim }}>自定义规则 · 双打 · 对战记录</span>
+            <span style={{ fontSize: 24, fontWeight: 700, color: "#07080C", padding: "5px 18px", borderRadius: 10, background: COLORS.blue }}>2.3</span>
+            <span style={{ fontSize: 21, color: COLORS.textDim }}>红黄牌 · 自定义规则 · 对战记录</span>
           </div>
         </div>
       </div>

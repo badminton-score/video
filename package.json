@@ -5,7 +5,7 @@
   "description": "羽毛球计分器宣传视频（Remotion）",
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render BadmintonVideo out/badminton-2.0.mp4 --codec=h264 --crf=18"
+    "render": "remotion render BadmintonVideo out/saidian-2.3.mp4 --codec=h264 --crf=18"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.525",

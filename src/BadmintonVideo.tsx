@@ -80,7 +80,7 @@ const SceneOpen: React.FC<{ dur: number }> = ({ dur }) => (
       <div style={{ height: 22 }} />
       <FadeUp delay={26} distance={22}>
         <div style={{ fontSize: 30, color: COLORS.textDim, letterSpacing: 6, fontFamily: FONT }}>
-          红蓝对抗 · 规则内置 · 一指计分
+          红蓝对抗 · 红黄牌 · 一指计分
         </div>
       </FadeUp>
       <div style={{ height: 34 }} />
@@ -88,7 +88,7 @@ const SceneOpen: React.FC<{ dur: number }> = ({ dur }) => (
         <div style={{
           fontSize: 24, fontWeight: 700, color: "#07080C", background: COLORS.blue,
           padding: "9px 26px", borderRadius: 14, fontFamily: FONT,
-        }}>2.2</div>
+        }}>2.3</div>
       </FadeUp>
     </AbsoluteFill>
   </SceneShell>
@@ -133,6 +133,28 @@ const SceneMinus: React.FC<{ dur: number }> = ({ dur }) => (
       <FadeUp delay={48} distance={20}>
         <div style={{ fontSize: 26, color: COLORS.textDim, fontFamily: FONT }}>
           分不是「减」掉的，是<b style={{ color: COLORS.text }}>撤回上一次加分</b> —— 撤销重做随便退
+        </div>
+      </FadeUp>
+    </AbsoluteFill>
+  </SceneShell>
+);
+
+const SceneCards: React.FC<{ dur: number }> = ({ dur }) => (
+  <SceneShell duration={dur} glow={1.0} glowY={42}>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+      <Kicker delay={4}>红黄牌</Kicker>
+      <div style={{ height: 24 }} />
+      <Headline delay={12} size={58}>犯规也记在比分旁</Headline>
+      <div style={{ height: 34 }} />
+      <div style={{ display: "flex", gap: 34, alignItems: "center" }}>
+        <Shot src="s-cards.png" height={440} delay={20} />
+        <Shot src="s-card-red.png" height={380} delay={34} />
+        <Shot src="s-card-yellow.png" height={380} delay={48} />
+      </div>
+      <div style={{ height: 34 }} />
+      <FadeUp delay={68} distance={20}>
+        <div style={{ fontSize: 26, color: COLORS.textDim, fontFamily: FONT }}>
+          红黄牌分别计数 · 全屏提示 · 撤销菜单可分别撤回分数、红牌或黄牌
         </div>
       </FadeUp>
     </AbsoluteFill>
@@ -321,9 +343,9 @@ const SceneOutro: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 const MAP: [keyof typeof SCENES, React.FC<{ dur: number }>][] = [
-  ["open", SceneOpen], ["tap", SceneTap], ["minus", SceneMinus], ["modes", SceneModes],
-  ["custom", SceneCustom], ["doubles", SceneDoubles], ["records", SceneRecords],
-  ["platforms", ScenePlatforms], ["outro", SceneOutro],
+  ["open", SceneOpen], ["tap", SceneTap], ["minus", SceneMinus], ["cards", SceneCards],
+  ["modes", SceneModes], ["custom", SceneCustom], ["doubles", SceneDoubles],
+  ["records", SceneRecords], ["platforms", ScenePlatforms], ["outro", SceneOutro],
 ];
 
 /** 场景交界处交叠的帧数。两边一起淡，就成了交叉溶解，不会中间黑一下。 */
@@ -340,7 +362,7 @@ export const BadmintonVideo: React.FC = () => (
     }} />
 
     <Audio
-      src={staticFile("slowmotion.mp3")}
+      src={staticFile("episode33.mp3")}
       volume={(f) =>
         interpolate(f, [0, 30, TOTAL_FRAMES - 90, TOTAL_FRAMES], [0, 1, 1, 0], {
           extrapolateLeft: "clamp", extrapolateRight: "clamp",

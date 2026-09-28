@@ -15,7 +15,7 @@ export const Cover: React.FC = () => (
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontSize: 52 }}>🏸</span>
           <span style={{ fontSize: 38, fontWeight: 700, color: COLORS.text }}>赛点</span>
-          <span style={{ fontSize: 25, fontWeight: 800, color: "#07080C", background: COLORS.blue, padding: "4px 15px", borderRadius: 10 }}>2.2</span>
+          <span style={{ fontSize: 25, fontWeight: 800, color: "#07080C", background: COLORS.blue, padding: "4px 15px", borderRadius: 10 }}>2.3</span>
         </div>
 
         <div style={{ marginTop: 26, fontSize: 60, fontWeight: 800, color: COLORS.text, lineHeight: 1.16 }}>
@@ -25,11 +25,11 @@ export const Cover: React.FC = () => (
         </div>
 
         <div style={{ marginTop: 20, fontSize: 22, color: COLORS.textDim }}>
-          六种规则 · 自定义分数 · 双打发球轮转
+          六种规则 · 红黄牌 · 双打发球轮转
         </div>
 
         <div style={{ marginTop: 20, display: "flex", gap: 11 }}>
-          {["一指计分", "减分即撤回", "对战记录"].map((t) => (
+          {["一指计分", "红黄牌", "对战记录"].map((t) => (
             <span key={t} style={{
               fontSize: 18, color: COLORS.blueBright, padding: "7px 16px", borderRadius: 10,
               background: "rgba(51,133,255,0.14)", border: `1px solid ${COLORS.line}`,
@@ -44,8 +44,8 @@ export const Cover: React.FC = () => (
 
       <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
         {[
-          { src: "s-match.png", h: 320, off: 0 },
-          { src: "s-doubles.png", h: 360, off: -12 },
+          { src: "s-cards.png", h: 320, off: 0 },
+          { src: "s-card-red.png", h: 360, off: -12 },
         ].map((t) => (
           <div key={t.src} style={{
             height: t.h, aspectRatio: "1206 / 2622", overflow: "hidden", borderRadius: 22,
